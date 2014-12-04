@@ -1,6 +1,6 @@
 COMING SOON
 
-HadoopMobileWS
+Hadoop Mobile Web Client
 ==============
 
 This project provides objective-c wrapper classes for Hadoop WebHDFS and WebhCat REST web services. The main motivation to develop this interface for me is to upload body sensor data to hadoop for further analysis. I already have products out like MOTIV8 that collects a lot of body sensor data like heartrate and step counts from people. This library is developed to upload this type of data from an iOS device to a scalable Hadoop platform. Please note the library will not be hardwired to a specific hadoop instance it is designed to point to any hadoop instance.
