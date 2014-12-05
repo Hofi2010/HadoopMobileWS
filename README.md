@@ -10,17 +10,3 @@ The objective-c wrapper classes will hnadle the web service protocol and provide
 There will also be classes to support the WebHCat interface to add data to a hive DB and tables, create and drop tables, execute hive sql statement from any iOS device.
 
 In order to use this library on an iOS deivce you need to have the full domain name of the hadoop instance, e.g. sandbox.hortonworks.com or similar. Just the ip address will not work, because the Hadoop REST API works quit a bit with redirected URI's using the full domain name. So the network you use the iOS device on needs to be able to resolve this domain name. If you are planning to use it in the internet the hadoop instance would need a unique domain name registered with a DNS provider.
-
-Example how to use:
-// This code snippest create a file in Hadoop, append a string to it and 
-// open the files, meaning retrieves the content and display it in a text box
-// In this version you need to set the base URI in the HDFSClient.m file
-HDFSClient *client = [[HDFSClient alloc] init];
-    
-   [client createFile:@"/user/hive/klaus.out" success:^(void) {
-       [client appendStringToFile:@"/user/hive/myfile.out" string:@"\n100\tHDFSClient" success:^(void) {
-           [client openFile:@"/user/hive/myfile.out" success:^(NSString *contentStr) {
-               _OutputLbl.text =  [[NSString alloc] initWithFormat:@"%@",contentStr];
-           }];
-       }];
-   }];
