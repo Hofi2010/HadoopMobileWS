@@ -1,4 +1,4 @@
-COMING SOON
+Experimental - Work in Porgress but Working ...
 
 Hadoop Mobile Web Client (iOS)
 ==============
