@@ -1,4 +1,4 @@
-Experimental - Work in Porgress but Working ...
+Experimental - Work in Porgress but Working ... The code was compiled with AFNetworking library
 
 Hadoop Mobile Web Client (iOS)
 ==============
