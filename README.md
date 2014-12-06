@@ -12,7 +12,7 @@ In order to use this library on an iOS device you need to have the full domain n
 
 Here a simple example that already woorks with HDFSclient.m:
 
-#### create a file myfile.out in hive user directory and write a string into it. Then open the file and display content in a text box.
+#### create a file "myfile.out" in hive user directory and append a string. Finally download the content and display in a text box.
 
 ```objective-c
    HDFSClient *client = [[HDFSClient alloc] init];
