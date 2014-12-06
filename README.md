@@ -3,10 +3,9 @@ Experimental - Work in Porgress but Working ... The code was compiled with AFNet
 Hadoop Mobile Web Client (iOS)
 ==============
 
-This project provides objective-c wrapper classes for Hadoop WebHDFS and WebhCat REST web services. The main motivation to develop this interface for me is to upload body sensor data to hadoop for further analysis. I already have products out like MOTIV8 that collects a lot of body sensor data like heartrate and step counts from people. This library is developed to upload this type of data from an iOS device to a scalable Hadoop platform. Please note the library will not be hardwired to a specific hadoop instance it is designed to point to any hadoop instance.
+This project provides objective-c wrapper classes for Hadoop WebHDFS and WebhCat REST web services. The main motivation to develop this interface is to upload body sensor data captured via mobile devices, such as the iPhone, to Hadoop for further analysis. For example data from MOTIV8 that collects a lot of body sensor data like heartrate and step counts from users. The aim is <b>not</b> to support a single base URL rather than a generic library programmers can point to any Hadoop cluster.
 
-The objective-c wrapper classes will hnadle the web service protocol and provide easy to use functions to create, delete, append and upload files to hadoop from your mobile phone. 
-
+The objective-c wrapper classes will handle the web service protocol and provide easy to use functions to create, delete, append and upload ascii files, images to Hadoop from a mobile device.
 There will also be classes to support the WebHCat interface to add data to a hive DB and tables, create and drop tables, execute hive sql statement from any iOS device.
 
-In order to use this library on an iOS deivce you need to have the full domain name of the hadoop instance, e.g. sandbox.hortonworks.com or similar. Just the ip address will not work, because the Hadoop REST API works quit a bit with redirected URI's using the full domain name. So the network you use the iOS device on needs to be able to resolve this domain name. If you are planning to use it in the internet the hadoop instance would need a unique domain name registered with a DNS provider.
+In order to use this library on an iOS device you need to have the full domain name of the Hadoop instance, e.g. sandbox.hortonworks.com or similar. Just the ip address will not work, because the Hadoop REST API works quit a bit with redirected URI's using the full domain name. So the network you use the iOS device on needs to be able to resolve this domain name. If you are planning to use it on the internet the Hadoop instance would need a unique domain name registered with a DNS provider.
