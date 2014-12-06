@@ -10,22 +10,18 @@ There will also be classes to support the WebHCat interface to add data to a hiv
 
 In order to use this library on an iOS device you need to have the full domain name of the Hadoop instance, e.g. sandbox.hortonworks.com or similar. Just the ip address will not work, because the Hadoop REST API works quit a bit with redirected URI's using the full domain name. So the network you use the iOS device on needs to be able to resolve this domain name. If you are planning to use it on the internet the Hadoop instance would need a unique domain name registered with a DNS provider.
 
-#### Creating an Upload Task for a Multi-Part Request, with Progress
+Here a simple example that already woorks with HDFSclient.m, create a file myfile.out in hive user directory and write a string into it. Then open the file and display content in a text box.
+
+#### Create a file and and populate with a string
 
 ```objective-c
-NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:@"http://example.com/upload" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileURL:[NSURL fileURLWithPath:@"file://path/to/image.jpg"] name:@"file" fileName:@"filename.jpg" mimeType:@"image/jpeg" error:nil];
-    } error:nil];
-
-AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-NSProgress *progress = nil;
-
-NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithStreamedRequest:request progress:&progress completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
-    if (error) {
-        NSLog(@"Error: %@", error);
-    } else {
-        NSLog(@"%@ %@", response, responseObject);
-    }
-}];
-
-[uploadTask resume];
+   HDFSClient *client = [[HDFSClient alloc] init];
+   
+    
+   [client createFile:@"/user/hive/myfile.out" success:^(Boolean a) {
+       [client appendStringToFile:@"/user/hive/myfile.out" string:@"\n100\tHDFSClient" success:^(Boolean a) {
+           [client openFile:@"/user/hive/myfile.out" success:^(NSString *contentStr) {
+               _OutputLbl.text =  [[NSString alloc] initWithFormat:@"%@",contentStr];
+           }];
+       }];
+   }];
