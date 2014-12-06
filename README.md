@@ -25,3 +25,6 @@ Here a simple example that already woorks with HDFSclient.m:
            }];
        }];
    }];
+```
+
+Hope this code snippet helps.
